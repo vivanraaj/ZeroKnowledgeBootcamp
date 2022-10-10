@@ -1,4 +1,4 @@
-// I AM NOT DONE
+// NOT SURE ??
 
 from starkware.cairo.common.bitwise import bitwise_and, bitwise_xor
 from starkware.cairo.common.cairo_builtins import BitwiseBuiltin, HashBuiltin

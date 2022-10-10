@@ -1,4 +1,4 @@
-// I AM NOT DONE
+// NOT SURE ??
 
 %lang starknet
 from starkware.cairo.common.bitwise import bitwise_and, bitwise_xor
