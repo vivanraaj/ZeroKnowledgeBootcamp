@@ -104,17 +104,23 @@ func allowance{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(
 func transfer{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(
     recipient: felt, amount: Uint256
 ) -> (success: felt) {
-
-    ERC20_transfer(recipient, amount);
-    return (1,);
+    // DONE FIRST TASK
+    let (_, remainder) = unsigned_div_rem(amount, 2);
+    if (remainder == 0) {
+        ERC20_transfer(recipient, amount);
+    }
+    return ();
 }
 
 @external
 func faucet{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(amount: Uint256) -> (
     success: felt
 ) {
-
     let (caller) = get_caller_address();
+    // WHATS THE "MORE THAN" SYNTAX ?
+    if (amount > 10000){
+        return ();
+    }    
     ERC20_mint(caller, amount);
     return (1,);
 }
@@ -123,6 +129,7 @@ func faucet{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(amo
 func burn{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(amount: Uint256) -> (
     success: felt
 ) {
+    
     return (1,);
 }
 
